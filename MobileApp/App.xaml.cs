@@ -1,12 +1,15 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using MobileApp.Data;
 using MobileApp.Views;
+using Xamarin.Forms;
 
 namespace MobileApp
 {
     public partial class App : Application
     {
+        static TokenDatabaseController tokenDatabase;
+        static UserDatabaseController userDatabase;
+        static RestService restService;
+
         public App()
         {
             InitializeComponent();
@@ -27,6 +30,42 @@ namespace MobileApp
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        public static UserDatabaseController UserDatabase
+        {
+            get
+            {
+                if (userDatabase == null)
+                {
+                    userDatabase = new UserDatabaseController();
+                }
+                return userDatabase;
+            }
+        }
+
+        public static TokenDatabaseController TokenDatabase
+        {
+            get
+            {
+                if (userDatabase == null)
+                {
+                    tokenDatabase = new TokenDatabaseController();
+                }
+                return tokenDatabase;
+            }
+        }
+
+        public static RestService RestService
+        {
+            get
+            {
+                if(restService == null)
+                {
+                    restService = new RestService();
+                }
+                return restService;
+            }
         }
     }
 }

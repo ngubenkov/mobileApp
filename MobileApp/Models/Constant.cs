@@ -13,5 +13,9 @@ namespace MobileApp.Models
         public static Color MaintTextColor = Color.White;
 
         public static int LoginIconHeight = 120;
+
+
+        // -----------Login-------
+        public static string LoginUrl = "https://test.com/api/Auth/Login";
     }
 }
