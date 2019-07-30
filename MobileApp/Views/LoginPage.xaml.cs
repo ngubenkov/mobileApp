@@ -22,9 +22,11 @@ namespace MobileApp.Views
             Lbl_Username.TextColor = Constant.MaintTextColor;
             ActivitySpinner.IsVisible = false;
             LoginIcon.HeightRequest = Constant.LoginIconHeight;
+            App.StartCheckIfInternet(lbl_NoInternet, this);
 
             Entry_Username.Completed += (s, e) => Entry_Password.Focus();
             Entry_Username.Completed += (s, e) => SignInProcedure(s, e);
+
         }
 
         async void SignInProcedure(object sender, EventArgs e)

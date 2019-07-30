@@ -5,8 +5,12 @@ using System.Text;
 using CoreFoundation;
 using Foundation;
 using MobileApp.Data;
+using MobileApp.iOS.Data;
 using SystemConfiguration;
 using UIKit;
+using Xamarin.Forms;
+
+[assembly: Dependency(typeof(NetworkConnection))]
 
 namespace MobileApp.iOS.Data
 {
@@ -23,7 +27,9 @@ namespace MobileApp.iOS.Data
         {
             var h = ReachabilityChanged;
             if (h != null)
+            {
                 h(null, EventArgs.Empty);
+            }      
         }
 
         public bool InternetStatus()
@@ -59,8 +65,7 @@ namespace MobileApp.iOS.Data
                     return false;
                 }
                     
-            return ISReachableWithoutRequireingConnection(flags);
-            
+            return ISReachableWithoutRequireingConnection(flags);  
         }
 
         private bool ISReachableWithoutRequireingConnection(NetworkReachabilityFlags flags)
@@ -69,7 +74,10 @@ namespace MobileApp.iOS.Data
             bool noConnectionRequired = (flags & NetworkReachabilityFlags.ConnectionRequired) == 0;
 
             if ((flags & NetworkReachabilityFlags.IsWWAN) != 0)
+            {
                 noConnectionRequired = true;
+            }
+                
             return isReachable && noConnectionRequired;
         }
     }
