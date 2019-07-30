@@ -1,4 +1,5 @@
 ﻿using MobileApp.Models;
+using MobileApp.Views.Menu;
 using System;
 
 using Xamarin.Forms;
@@ -35,10 +36,21 @@ namespace MobileApp.Views
             if (user.CheckInformation())
             {
                 DisplayAlert("Login", "Login success", "Oke");
-                var result = await App.RestService.Login(user);
+                // var result = await App.RestService.Login(user);  // used for testing purpose
+                var result = new Token();
                 if(result != null)
                 {
-                    App.UserDatabase.SaveUser(user);
+                //    App.UserDatabase.SaveUser(user);
+                //    App.TokenDatabase.SaveToken(result);
+                //    await Navigation.PushAsync(new Dashboard());
+                    if(Device.OS == TargetPlatform.Android)
+                    {
+                        Application.Current.MainPage = new NavigationPage(new Dashboard());
+                    }
+                    else if (Device.OS == TargetPlatform.iOS)
+                    {
+                        await Navigation.PushModalAsync(new NavigationPage(new Dashboard()));
+                    }
                 }
             }
             else
