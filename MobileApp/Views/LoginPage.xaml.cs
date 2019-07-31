@@ -35,15 +35,17 @@ namespace MobileApp.Views
             User user = new User(Entry_Username.Text, Entry_Password.Text);
             if (user.CheckInformation())
             {
+                ActivitySpinner.IsVisible = true;
                 await DisplayAlert("Login", "Login success", "Oke");
                 // var result = await App.RestService.Login(user);  // used for testing purpose
                 var result = new Token();
                 if(result != null)
                 {
-                //    App.UserDatabase.SaveUser(user);
-                //    App.TokenDatabase.SaveToken(result);
-                //    await Navigation.PushAsync(new Dashboard());
-                    if(Device.OS == TargetPlatform.Android)
+                    ActivitySpinner.IsVisible = false;
+                    //    App.UserDatabase.SaveUser(user);
+                    //    App.TokenDatabase.SaveToken(result);
+                    //    await Navigation.PushAsync(new Dashboard());
+                    if (Device.OS == TargetPlatform.Android)
                     {
                         Application.Current.MainPage = new NavigationPage(new MasterDetail());
                     }
@@ -56,6 +58,7 @@ namespace MobileApp.Views
             else
             {
                 await DisplayAlert("Login", "Login Not Correct", "Oke");
+                ActivitySpinner.IsVisible = false;
             }
         }
     }
