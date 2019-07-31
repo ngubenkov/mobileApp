@@ -39,6 +39,11 @@ namespace MobileApp.Views
                 await DisplayAlert("Login", "Login success", "Oke");
                 // var result = await App.RestService.Login(user);  // used for testing purpose
                 var result = new Token();
+                if(App.SettingsDatabase.GetSettings() == null)
+                {
+                    Settings settings = new Models.Settings();
+                    App.SettingsDatabase.SaveSettings(settings);
+                }
                 if(result != null)
                 {
                     ActivitySpinner.IsVisible = false;

@@ -12,6 +12,8 @@ namespace MobileApp
     {
         static TokenDatabaseController tokenDatabase;
         static UserDatabaseController userDatabase;
+        static SettingsDatabaseController settingsDatabase;
+
         static RestService restService;
         private static Label labelScreen;
         private static bool hasInternet;
@@ -65,6 +67,18 @@ namespace MobileApp
             }
         }
 
+
+        public static SettingsDatabaseController SettingsDatabase
+        {
+            get
+            {
+                if(settingsDatabase == null)
+                {
+                    settingsDatabase = new SettingsDatabaseController();
+                }
+                return settingsDatabase;
+            }
+        }
         public static RestService RestService
         {
             get
