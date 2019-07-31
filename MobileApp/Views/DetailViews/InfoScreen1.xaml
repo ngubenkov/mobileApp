@@ -3,6 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileApp.Views.Menu.DetailViews.InfoScreen1">
    
-            <Label Text="Info screen 1" />
+           
+
+    <StackLayout x:Name="MainLayout">
+        <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout x:Name="SubLayout"
+                         Orientation="Vertical"
+                         VerticalOptions="FillAndExpand"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}">
+                <Label Text="Info screen 1" HorizontalOptions="Center" VerticalOptions="Center" />
+            </StackLayout>
+            <ActivityIndicator IsRunning="True" Color="Red" x:Name="ActivitySpinner"
+                               VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
+                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />
+        </RelativeLayout>
+    </StackLayout>
 
 </ContentPage>

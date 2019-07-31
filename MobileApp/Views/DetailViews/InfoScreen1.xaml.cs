@@ -15,6 +15,12 @@ namespace MobileApp.Views.Menu.DetailViews
         public InfoScreen1()
         {
             InitializeComponent();
+            Init();
+        }
+
+        void Init()
+        {
+            ActivitySpinner.IsVisible = true;
         }
     }
 }

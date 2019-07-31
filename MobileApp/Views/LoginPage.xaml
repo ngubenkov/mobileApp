@@ -14,9 +14,7 @@
 
         <StackLayout x:Name="LoginEntriesStack" VerticalOptions="StartAndExpand">
             <StackLayout.Padding>
-                <OnIdiom x:TypeArguments="Thickness">
-                    <OnIdiom.Phone >40,0,40,0</OnIdiom.Phone>
-                    <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
+                <OnIdiom x:TypeArguments="Thickness" Phone="40,0,40,0" Tablet="140,150,140,0">
                 </OnIdiom>
             </StackLayout.Padding>
 
