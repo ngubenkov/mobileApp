@@ -26,6 +26,7 @@ namespace MobileApp
             InitializeComponent();
 
             MainPage = new LoginPage();
+
         }
 
         protected override void OnStart()
