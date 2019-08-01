@@ -20,5 +20,9 @@ namespace MobileApp.Models
         public static string NoInternetText = "No internet, please connect";
 
         public static string SettingScreenTitle = "Settings";
+
+        // ------------API endpoints--------------
+        public static string apiSalesPersons = "http://192.168.201.25:8000/api/salespersons/";
+        public static string apiAccounts = "http://192.168.201.25:8000/api/accounts/";
     }
 }
