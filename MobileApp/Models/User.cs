@@ -33,6 +33,7 @@ namespace MobileApp.Models
 
         public async Task<bool> CheckInformation()
         {
+            
             var client = new RestClient(Constant.apiAuth);
             var request = new RestRequest(Method.POST);
             prepareToEncrypt();

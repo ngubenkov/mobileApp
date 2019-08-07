@@ -33,9 +33,10 @@ namespace MobileApp.Views
         async void SignInProcedure(object sender, EventArgs e)
         {
             User user = new User(Entry_Username.Text, Entry_Password.Text);
+            ActivitySpinner.IsVisible = true;
             if (await user.CheckInformation())
             {
-                ActivitySpinner.IsVisible = true;
+                
                // await DisplayAlert("Login", "Login success", "Oke");
                 // var result = await App.RestService.Login(user);  // used for testing purpose
                 var result = new Token();
@@ -52,7 +53,7 @@ namespace MobileApp.Views
                     //    await Navigation.PushAsync(new Dashboard());
                     if (Device.OS == TargetPlatform.Android)
                     {
-                        Application.Current.MainPage = new NavigationPage(new MasterDetail());
+                       Application.Current.MainPage = new NavigationPage(new MasterDetail());
                     }
                     else if (Device.OS == TargetPlatform.iOS)
                     {

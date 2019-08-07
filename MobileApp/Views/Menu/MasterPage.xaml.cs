@@ -36,5 +36,17 @@ namespace MobileApp.Views.Menu
             ListView.ItemsSource = items;
 
         }
+
+        async void Logout(object sender, EventArgs e)
+        {
+            if (Device.OS == TargetPlatform.Android)
+            {
+                Application.Current.MainPage = new NavigationPage(new LoginPage());
+            }
+            else if (Device.OS == TargetPlatform.iOS)
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new LoginPage()));
+            }
+        }
     }
 }
