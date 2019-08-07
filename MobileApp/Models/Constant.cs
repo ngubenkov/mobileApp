@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
+
 namespace MobileApp.Models
 {
     public class Constant
@@ -14,7 +15,9 @@ namespace MobileApp.Models
 
         public static int LoginIconHeight = 120;
 
-
+        // ------------Encryption-------------------
+        public static string Key = "e2uSo0f1t4ro";
+        
         // -----------Login-------
         public static string LoginUrl = "https://test.com/api/Auth/Login";
         public static string NoInternetText = "No internet, please connect";
@@ -24,5 +27,6 @@ namespace MobileApp.Models
         // ------------API endpoints--------------
         public static string apiSalesPersons = "http://192.168.201.25:8000/api/salespersons/";
         public static string apiAccounts = "http://192.168.201.25:8000/api/accounts/";
+        public static string apiAuth = "http://192.168.201.25:8000/api/auth/";
     }
 }

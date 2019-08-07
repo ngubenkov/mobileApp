@@ -33,10 +33,10 @@ namespace MobileApp.Views
         async void SignInProcedure(object sender, EventArgs e)
         {
             User user = new User(Entry_Username.Text, Entry_Password.Text);
-            if (user.CheckInformation())
+            if (await user.CheckInformation())
             {
                 ActivitySpinner.IsVisible = true;
-                await DisplayAlert("Login", "Login success", "Oke");
+               // await DisplayAlert("Login", "Login success", "Oke");
                 // var result = await App.RestService.Login(user);  // used for testing purpose
                 var result = new Token();
                 if(App.SettingsDatabase.GetSettings() == null)
