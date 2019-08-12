@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileApp.Views.DetailViews.Accounts.AccountDetails">
+  <ContentView.Content>
+      <StackLayout>
+          <Label x:Name="lbl_AccountName" Text="" />
+            <Label Text="Phone number:" />
+            <Label x:Name="lbl_PhoneNumber" Text="" />
+          
+            <Label Text="Address:" />
+            <Label x:Name="lbl_Address" Text="" />
+          
+            <Label Text="Email:" />
+            <Label x:Name="lbl_email" Text="" />
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

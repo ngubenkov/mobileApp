@@ -25,8 +25,10 @@ namespace MobileApp.Models
         public static string SettingScreenTitle = "Settings";
 
         // ------------API endpoints--------------
-        public static string apiSalesPersons = "http://192.168.201.25:8000/api/salespersons/";
-        public static string apiAccounts = "http://192.168.201.25:8000/api/accounts/";
-        public static string apiAuth = "http://192.168.201.25:8000/api/auth/";
+        public static string endPoint = "http://192.168.137.1:8000/api/";  // change this var during testing
+        public static string apiSalesPersons = endPoint+"salespersons/";
+        public static string apiAccounts = endPoint + "accounts/";
+        public static string apiAuth = endPoint + "auth/";
+        public static string apiAccountDetail = endPoint + "account/details/{0}";
     }
 }

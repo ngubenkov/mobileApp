@@ -10,14 +10,16 @@ using Newtonsoft.Json;
 using RestSharp;
 using MobileApp.Models;
 using Newtonsoft.Json.Linq;
+using MobileApp.Views.DetailViews.Accounts;
+
 namespace MobileApp.Views.DetailViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Accounts : ContentPage
+    public partial class AccountsMaster : ContentPage
     {
-        List<String> Items;
-        public Accounts()
-        {
+        List<Tuple<string, int?>> Items;
+        public AccountsMaster()
+        {   
             InitializeComponent();
             Init();
             InitList();
@@ -27,9 +29,9 @@ namespace MobileApp.Views.DetailViews
         {
             ActivitySpinner.IsVisible = true;
         }
-         async void InitList()
+        async void InitList()
         {
-            Items = new List<string>();
+            Items = new List<Tuple<string, int?>>();
             var client = new RestClient(Constant.apiAccounts);
             var request = new RestRequest(Method.GET);
 
@@ -38,11 +40,20 @@ namespace MobileApp.Views.DetailViews
 
             foreach (var persone in salesPersons[0]["accounts"])
             {
-                Items.Add(persone.Value<String>("acc_chart_name1"));
+                Items.Add(new Tuple<string,int?>(persone.Value<String>("acc_chart_name1"), persone.Value<int?>("FK_acc_chart_add_id")));
             }
 
              AccountsPersonsList.ItemsSource = Items;
             ActivitySpinner.IsVisible = false;
+        }
+
+        async void GetDetails(object sender, SelectedItemChangedEventArgs e)
+        {
+            Tuple<string, int?> item = (Tuple<string,int?>)e.SelectedItem;
+            // TODO: open detail page
+            // SetPage( page )
+            // Application.Current.MainPage = new NavigationPage(new AccountDetails(item.Item1, item.Item2));
+            
         }
     }
 }

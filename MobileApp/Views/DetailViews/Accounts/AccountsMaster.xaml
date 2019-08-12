@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MobileApp.Views.DetailViews.Accounts">
+             x:Class="MobileApp.Views.DetailViews.AccountsMaster">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
@@ -16,7 +16,12 @@
                                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
                                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />
 
-                <ListView x:Name="AccountsPersonsList">
+                <ListView x:Name="AccountsPersonsList" ItemSelected="GetDetails">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Item1}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
 
                 </ListView>
             </StackLayout>

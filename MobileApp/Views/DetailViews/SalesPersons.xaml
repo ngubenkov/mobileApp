@@ -10,7 +10,6 @@
             <Label Text="Sales persons"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-
             <ListView x:Name="SalesPersonsList">
                 
             </ListView>
