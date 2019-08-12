@@ -13,7 +13,7 @@ using Xamarin.Forms.Xaml;
 namespace MobileApp.Views.DetailViews.Accounts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AccountDetails : ContentView
+    public partial class AccountDetails : ContentPage
     {
         public string AccountName;
         public int? id;
@@ -28,14 +28,17 @@ namespace MobileApp.Views.DetailViews.Accounts
         async void Init()
         {
             lbl_AccountName.Text = AccountName;
-            var client = new RestClient(String.Format(Constant.apiAccountDetail,id.ToString()));
+            lbl_test.Text = String.Format(Constant.apiAccountDetail + id.ToString() + "/" );
+            
+            var client = new RestClient(Constant.apiAccountDetail + id.ToString() + "/" );
             var request = new RestRequest(Method.GET);
 
-            var response = await client.ExecuteGetTaskAsync<JArray>(request);
-            var accountDetails = JArray.Parse(response.Content);
+            var response = await client.ExecuteGetTaskAsync<JObject>(request);
+            var accountDetails = JObject.Parse(response.Content);
+
             lbl_Address.Text = accountDetails["address"][0]["City"].ToString();
             lbl_PhoneNumber.Text = accountDetails["phones"][0]["phone"].ToString();
-            lbl_email.Text = accountDetails["emails"][0]["email"].ToString();
+            lbl_Email.Text = accountDetails["emails"][0]["email"].ToString();
         }
     }
 }

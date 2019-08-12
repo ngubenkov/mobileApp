@@ -52,7 +52,7 @@ namespace MobileApp.Views.DetailViews
             Tuple<string, int?> item = (Tuple<string,int?>)e.SelectedItem;
             // TODO: open detail page
             // SetPage( page )
-            // Application.Current.MainPage = new NavigationPage(new AccountDetails(item.Item1, item.Item2));
+            Application.Current.MainPage = new NavigationPage(new AccountDetails(item.Item1, item.Item2));
             
         }
     }
