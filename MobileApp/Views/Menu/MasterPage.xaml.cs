@@ -1,5 +1,6 @@
 ﻿using MobileApp.Models;
 using MobileApp.Views.DetailViews;
+using MobileApp.Views.DetailViews.Items;
 using MobileApp.Views.DetailViews.SettingsViews;
 using MobileApp.Views.Menu.DetailViews;
 using System;
@@ -32,6 +33,7 @@ namespace MobileApp.Views.Menu
             items.Add(new MasterMenuItem("InfoScreen2", "LoginIcon.png", Color.White, typeof(InfoScreen2)));
             items.Add(new MasterMenuItem("Accounts", "LoginIcon.png", Color.White, typeof(AccountsMaster)));
             items.Add(new MasterMenuItem("Sales Persons", "LoginIcon.png", Color.White, typeof(SalesPersons)));
+            items.Add(new MasterMenuItem("Items", "LoginIcon.png", Color.White, typeof(ItemsMaster)));
             items.Add(new MasterMenuItem("Setting", "LoginIcon.png", Color.White, typeof(SettingsScreen)));
             ListView.ItemsSource = items;
 

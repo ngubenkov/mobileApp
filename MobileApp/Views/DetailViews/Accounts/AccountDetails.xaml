@@ -6,7 +6,9 @@
              mc:Ignorable="d"
              x:Class="MobileApp.Views.DetailViews.Accounts.AccountDetails">
     <ContentPage.Content>
+        
         <StackLayout>
+            <Button x:Name="btn_GoBack" Clicked="goBackToMaster"></Button>
             <Label x:Name="lbl_test" Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
