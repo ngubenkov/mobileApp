@@ -25,8 +25,8 @@ namespace MobileApp.Models
         public static string SettingScreenTitle = "Settings";
 
         // ------------API endpoints--------------
-        public static string endPoint = "http://192.168.137.1:8000/api/";  // change this var during testing coffee house
-       // public static string endPoint = "http://192.168.137.1:8000/api/"; // home wifi
+        //public static string endPoint = "http://192.168.137.1:8000/api/";  // change this var during testing coffee house
+        public static string endPoint = "http://192.168.137.1:8000/api/"; // home wifi
         public static string apiSalesPersons = endPoint+"salespersons/";
         public static string apiAccounts = endPoint + "accounts/";
         public static string apiAuth = endPoint + "auth/";

@@ -5,8 +5,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MobileApp.Views.DetailViews.Items.ItemsMaster">
-    <Grid x:Name="gridLayout">
-        
-    </Grid>
     
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical">
+            <RelativeLayout HorizontalOptions="FillAndExpand" >
+                <ActivityIndicator IsRunning="True" Color="Red" x:Name="ActivitySpinner"
+                               VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
+                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />
+                <Grid x:Name="gridLayout"></Grid>
+            </RelativeLayout>
+        </ScrollView>
+    </ContentPage.Content>
+ 
 </ContentPage>
