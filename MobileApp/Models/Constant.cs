@@ -31,6 +31,7 @@ namespace MobileApp.Models
         public static string apiAccounts = endPoint + "accounts/";
         public static string apiAuth = endPoint + "auth/";
         public static string apiAccountDetail = endPoint + "account/details/";
-        public static string apiItems = endPoint + "items/";
+        public static string apiItems = endPoint + "items/"; // api/items/ -> returns all items, but api/items/<int:pk> -> returns info about specific item
+
     }
 }

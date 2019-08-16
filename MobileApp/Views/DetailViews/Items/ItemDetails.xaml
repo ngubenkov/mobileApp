@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileApp.Views.DetailViews.Items.ItemDetails">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="pic1.png"></Image>
+            <Label x:Name="lbl_Name" Text=""></Label>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Price: "></Label>
+                <Label x:Name="lbl_Price" ></Label>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Description: "></Label>
+                <Label x:Name="lbl_Description"></Label>
+             </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Type: "></Label>
+                <Label x:Name="lbl_Type"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
