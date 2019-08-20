@@ -4,8 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MobileApp.Views.DetailViews.Items.ItemsMaster">
-    
+             x:Class="MobileApp.Views.Cart.Cart">
+
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <RelativeLayout HorizontalOptions="FillAndExpand" >
@@ -13,9 +13,12 @@
                                VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
                                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />
-                <Grid x:Name="gridLayout"></Grid>
+                <StackLayout x:Name="listChart"></StackLayout>
             </RelativeLayout>
         </ScrollView>
     </ContentPage.Content>
- 
+
+
 </ContentPage>
+    
+    

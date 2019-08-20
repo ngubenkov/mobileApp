@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Image Source="pic1.png"></Image>
-            <Label x:Name="lbl_Name" Text=""></Label>
+            <Label x:Name="lbl_Name"></Label>
             
             <StackLayout Orientation="Horizontal">
                 <Label Text="Price: "></Label>
@@ -23,6 +23,8 @@
                 <Label Text="Type: "></Label>
                 <Label x:Name="lbl_Type"></Label>
             </StackLayout>
+            <Button x:Name="btn_addItemToChart" Text="Add To Chart" Clicked="addItemToChart"></Button>
+            <Button x:Name="btn_chart" Text="Go to Chart" Clicked="goToChart"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -13,15 +13,20 @@ using Xamarin.Forms.Xaml;
 namespace MobileApp.Views.DetailViews.Items
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+
     public partial class ItemDetails : ContentPage
     {
-        public ItemDetails(String id)
+        Product item;
+        Models.Cart chart;
+        public ItemDetails(String id, Models.Cart chart)
         {
+            this.chart = chart;
             InitializeComponent();
-            Init(id);
+            _ = Init(id);
+
         }
 
-        async void Init(string id)
+        async Task Init(string id)
         {
             await getDetails(id);
         }
@@ -43,9 +48,25 @@ namespace MobileApp.Views.DetailViews.Items
             {
                 lbl_Price.Text = "No data";
             }
+            finally
+            {
+                lbl_Description.Text = item["Description1"].ToString();
+                lbl_Type.Text = item["Type"].ToString();
+                this.item = new Product(Convert.ToInt32(item["ID"]),
+                    Convert.ToInt32(item["CompanyID"]), item["ShortDescription"].ToString(), (double?)item["LastCost1"]);
+            }
+        }
 
-            lbl_Description.Text = item["Description1"].ToString();
-            lbl_Type.Text = item["Type"].ToString();
+        void addItemToChart(object sender, EventArgs e)
+        {
+            this.chart.addItemToCart(this.item, 2);
+        }
+
+        void goToChart(object sender, EventArgs e)
+        {
+            Application.Current.MainPage.Navigation.PushAsync(new Views.Cart.Cart(this.chart));
         }
     }
+
+
 }

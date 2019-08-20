@@ -18,12 +18,14 @@ namespace MobileApp.Views.DetailViews.Items
         private List<Product> productArrayList;
         private int rows;
         private int col;
+        private Models.Cart chart;
 
         public ItemsMaster()
         {
             InitializeComponent();
             Init();
-            
+           
+
         }
 
         async void Init()
@@ -49,6 +51,7 @@ namespace MobileApp.Views.DetailViews.Items
                 }
             }
             ActivitySpinner.IsVisible = false;
+            this.chart = new Models.Cart();
         }
 
         async Task<List<Product>> GetListOfProducts()
@@ -101,11 +104,12 @@ namespace MobileApp.Views.DetailViews.Items
                 HorizontalOptions = LayoutOptions.Center,
                 WidthRequest = 100,
                 HeightRequest = 100,
-                
+                AutomationId = Convert.ToString(product.id),
+
             };
             // TODO: find a way to assign function on click at specific cell
             image.Clicked += OnImageButtonClicked; 
-            var btnStack = new StackLayout()
+            StackLayout btnStack = new StackLayout()
             {
                 Children = {
                             new Button{Text = "-", FontSize=8, WidthRequest = 30, HeightRequest = 30},
@@ -127,7 +131,13 @@ namespace MobileApp.Views.DetailViews.Items
 
         void OnImageButtonClicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new ItemDetails("53498"));
+            ImageButton btn = (ImageButton)sender;
+            Application.Current.MainPage.Navigation.PushAsync(new ItemDetails(btn.AutomationId, this.chart));      
+        }
+
+        void goToChart(object sender, EventArgs e)
+        {
+            Application.Current.MainPage.Navigation.PushAsync(new Views.Cart.Cart(this.chart));
         }
     }
 }

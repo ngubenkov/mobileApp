@@ -19,22 +19,28 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\DetailViews\Accounts\AccountsMaster.xaml.cs">
+    <Compile Update="Views\Accounts\AccountsMaster.xaml.cs">
       <DependentUpon>AccountsMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Cart\Cart.xaml.cs">
+      <DependentUpon>Cart.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\DetailViews\Accounts\AccountDetails.xaml">
+    <EmbeddedResource Update="Views\Cart\Cart.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DetailViews\Items\ItemDetails.xaml">
+    <EmbeddedResource Update="Views\Accounts\AccountDetails.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DetailViews\Items\ItemsMaster.xaml">
+    <EmbeddedResource Update="Views\Items\ItemDetails.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DetailViews\Items\ItemsMasterList.xaml">
+    <EmbeddedResource Update="Views\Items\ItemsMaster.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Items\ItemsMasterList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DetailViews\SettingsViews\SettingsScreen.xaml">

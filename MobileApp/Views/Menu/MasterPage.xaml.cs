@@ -36,7 +36,8 @@ namespace MobileApp.Views.Menu
             items.Add(new MasterMenuItem("Items", "LoginIcon.png", Color.White, typeof(ItemsMaster)));
             items.Add(new MasterMenuItem("Items v2", "LoginIcon.png", Color.White, typeof(ItemsMasterList)));
             items.Add(new MasterMenuItem("Setting", "LoginIcon.png", Color.White, typeof(SettingsScreen)));
-            
+      
+
             ListView.ItemsSource = items;
 
         }

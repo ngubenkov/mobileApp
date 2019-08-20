@@ -18,7 +18,7 @@ namespace MobileApp.Views.DetailViews.Items
         private List<Product> productArrayList;
         private int rows;
         private int col;
-
+        private Models.Cart cart;
         public ItemsMasterList()
         {
             InitializeComponent();
@@ -48,6 +48,7 @@ namespace MobileApp.Views.DetailViews.Items
                 }
             }
             ActivitySpinner.IsVisible = false;
+            this.cart = new Models.Cart();
         }
 
         async Task<List<Product>> GetListOfProducts()
@@ -116,7 +117,8 @@ namespace MobileApp.Views.DetailViews.Items
         void OnImageButtonClicked(object sender, EventArgs e)
         {
             ImageButton btn = (ImageButton)sender;
-            Application.Current.MainPage = new NavigationPage(new ItemDetails(btn.AutomationId));
+            Navigation.PushAsync(new ItemDetails(btn.AutomationId, this.cart));
+            //Application.Current.MainPage = new NavigationPage(new ItemDetails(btn.AutomationId));
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MobileApp.Models
 {
-    class Product
+    public class Product
     {
         public int id { get; set; }
         public int companyID { get; set; }
