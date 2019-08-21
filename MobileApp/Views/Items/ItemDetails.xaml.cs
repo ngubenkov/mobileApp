@@ -59,7 +59,7 @@ namespace MobileApp.Views.DetailViews.Items
 
         void addItemToChart(object sender, EventArgs e)
         {
-            this.chart.addItemToCart(this.item, 2);
+            this.chart.addItemToCart(this.item, 1);
         }
 
         void goToChart(object sender, EventArgs e)

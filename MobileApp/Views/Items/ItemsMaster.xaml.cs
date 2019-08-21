@@ -24,13 +24,11 @@ namespace MobileApp.Views.DetailViews.Items
         {
             InitializeComponent();
             Init();
-           
-
         }
 
         async void Init()
         {
-            productArrayList = await GetListOfProducts();
+            productArrayList = await GetListOfProducts(); 
             
             var productIndex = 0;
             for (int rowIndex = 0; rowIndex < this.rows; rowIndex++)
@@ -45,9 +43,8 @@ namespace MobileApp.Views.DetailViews.Items
                     productIndex += 1;
 
                     StackLayout item = createItem(product);
-
                     gridLayout.Children.Add(item, columnIndex, rowIndex);
-                   
+                    
                 }
             }
             ActivitySpinner.IsVisible = false;
@@ -72,7 +69,7 @@ namespace MobileApp.Views.DetailViews.Items
             return productsList;
         }
 
-        void createGrid(int rows, int cols) // create empty grid
+        async Task createGrid(int rows, int cols) // create empty grid
         {
             // TODO: add row/col defenition with some parameters to make screen scrollabpe
             this.rows = rows;

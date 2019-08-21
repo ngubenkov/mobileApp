@@ -7,7 +7,8 @@ namespace MobileApp.Models
     public class Cart
     {
         public List<Tuple<Product, int>> cart;
-        private double total;
+        public double totalAmount;
+        public int totalQuantity;
 
         public Cart()
         {
@@ -24,7 +25,25 @@ namespace MobileApp.Models
             cart.RemoveAt(ind);
         }
 
-        public double getCartTotal()
+        public void reduceQuantity(int ind)
+        {
+            if (cart[ind].Item2 > 2)
+            {
+                cart[ind] = new Tuple<Product, int>(cart[ind].Item1, cart[ind].Item2 - 1);
+                updateCartTotalAmount();
+                updateCartTotalQuantity();
+            }
+
+        }
+
+        public void addQuantity(int ind)
+        {
+            cart[ind] = new Tuple<Product, int>(cart[ind].Item1, cart[ind].Item2 + 1);
+            updateCartTotalAmount();
+            updateCartTotalQuantity();
+        }
+
+        public void updateCartTotalAmount()
         {
             double total = 0.0;
             foreach (Tuple<Product, int> item in cart)
@@ -34,7 +53,17 @@ namespace MobileApp.Models
                     total += (double)item.Item1.price * item.Item2;
                 }
             }
-            return total;
+            this.totalAmount = total;
+        }
+
+        public void updateCartTotalQuantity()
+        {
+            int total = 0;
+            foreach (Tuple<Product, int> item in cart)
+            {
+                total += item.Item2;
+            }
+            this.totalQuantity=total;
         }
 
     }

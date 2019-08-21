@@ -13,7 +13,20 @@
                                VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
                                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />
-                <StackLayout x:Name="listChart"></StackLayout>
+                <StackLayout>
+                    <StackLayout x:Name="listCart"></StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Total Quantity : "></Label>
+                        <Label x:Name="lbl_totalQty"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Total Amount : "></Label>
+                        <Label x:Name="lbl_totalAmount"></Label>
+                    </StackLayout>
+                    <Button x:Name="btn_PlaceOrder" Text="Place Order"></Button>
+                </StackLayout>
+                
             </RelativeLayout>
         </ScrollView>
     </ContentPage.Content>

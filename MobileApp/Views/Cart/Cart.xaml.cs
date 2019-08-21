@@ -24,13 +24,20 @@ namespace MobileApp.Views.Cart
             
         }
 
-        void Init()
+        async void Init()
         {
-
-            foreach(Tuple<Product,int> item in this.cart.cart)
+            if (this.cart.cart.Count == 0) // empty cart case
             {
-                listChart.Children.Add(createItem(item.Item1, item.Item2));
+                listCart.Children.Add(new Label { Text = "Your cart is emprty", VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.Center });
             }
+            else // cart contains items
+            {
+                foreach (Tuple<Product, int> item in this.cart.cart)
+                {
+                    listCart.Children.Add(createItem(item.Item1, item.Item2));
+                }
+            }
+            await updateTotals();
             ActivitySpinner.IsVisible = false;
         }
 
@@ -57,13 +64,37 @@ namespace MobileApp.Views.Cart
                 HorizontalOptions = LayoutOptions.Center,
             };
 
+            Button btnMinus = new Button
+            {
+                Text = "-",
+                FontSize = 8,
+                WidthRequest = 30,
+                HeightRequest = 30,
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Center,
+                ClassId = item.id.ToString()
+            };
+            btnMinus.Clicked += removeItem;
+
+            Button btnPluss = new Button
+            {
+                Text = "+",
+                FontSize = 8,
+                WidthRequest = 30,
+                HeightRequest = 30,
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Center,
+                ClassId = item.id.ToString()
+            };
+            btnPluss.Clicked += addItem;
+
             StackLayout buttons = new StackLayout
             {
                 Children = {
-                    new Button { Text = "-", FontSize = 8, WidthRequest = 30, HeightRequest = 30 },
-                    new Label { Text = "Qty", FontSize = 10, WidthRequest = 30, HeightRequest = 30 },
-                    new Button { Text = "+", FontSize = 8, WidthRequest = 30, HeightRequest = 30,
-                        VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.Center }
+                    btnMinus,
+                    new Label { Text = qty.ToString(), FontSize = 10, WidthRequest = 30, HeightRequest = 30,
+                        VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.Center, ClassId=item.id.ToString() },
+                    btnPluss,
                 },
                 Orientation = StackOrientation.Horizontal,
                 HorizontalOptions = LayoutOptions.Center,
@@ -82,10 +113,23 @@ namespace MobileApp.Views.Cart
                 HorizontalOptions = LayoutOptions.Center,
                 Spacing = 10,
             };
-
             return itemStack;
         }
 
-        
+        async void addItem(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+           // btn.ClassId
+        }
+        async void removeItem(object sender, EventArgs e)
+        {
+
+        }
+
+        async Task updateTotals()
+        {
+            lbl_totalQty.Text = this.cart.totalQuantity.ToString() ;
+            lbl_totalAmount.Text = this.cart.totalAmount.ToString();
+        }
     }
 }
