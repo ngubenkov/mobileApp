@@ -118,12 +118,35 @@ namespace MobileApp.Views.Cart
 
         async void addItem(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-           // btn.ClassId
+           Button btn = (Button)sender;
+            // btn.ClassId
+           int ind = 0;
+           foreach(Tuple<Product,int> item in cart.cart)
+           {
+                if(item.Item1.id.ToString() == btn.ClassId)
+                {
+                    cart.addQuantity(ind);
+                    break;
+                }
+                ind++;
+           }
+            await updateTotals();
         }
         async void removeItem(object sender, EventArgs e)
         {
-
+            Button btn = (Button)sender;
+            // btn.ClassId
+            int ind = 0;
+            foreach (Tuple<Product, int> item in cart.cart)
+            {
+                if (item.Item1.id.ToString() == btn.ClassId)
+                {
+                    cart.reduceQuantity(ind);
+                    break;
+                }
+                ind++;
+            }
+            await updateTotals();
         }
 
         async Task updateTotals()

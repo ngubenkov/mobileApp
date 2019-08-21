@@ -12,12 +12,14 @@ namespace MobileApp.Models
 
         public Cart()
         {
-            this.cart = new List<Tuple<Product, int>>();
+            this.cart = new List<Tuple<Product, int>>();     
         }
 
         public void addItemToCart(Product product, int quantity) // add item to chart
         {
             this.cart.Add(new Tuple<Product, int>(product, quantity));
+            updateCartTotalAmount();
+            updateCartTotalQuantity();
         }
 
         public void removeItemFromCart(int ind) // remove item by index
@@ -27,7 +29,7 @@ namespace MobileApp.Models
 
         public void reduceQuantity(int ind)
         {
-            if (cart[ind].Item2 > 2)
+            if (cart[ind].Item2 > 1)
             {
                 cart[ind] = new Tuple<Product, int>(cart[ind].Item1, cart[ind].Item2 - 1);
                 updateCartTotalAmount();
