@@ -5,13 +5,16 @@ using System.Security.Cryptography;
 using System.IO;
 using RestSharp;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace MobileApp.Models
 {
-   public class User
+    public class User
     {
         public static TripleDESCryptoServiceProvider TripleDes = new TripleDESCryptoServiceProvider();
         public int Id { get; set; }
+        public List<int> companies;
+
         public string Username { get; set; }
         public string Password { get; set; }
         public User() { }
@@ -21,15 +24,6 @@ namespace MobileApp.Models
             this.Password = Password;
         }
 
-        /*  Testing
-        public bool CheckInformation()
-        {
-            if ( !this.Username.Equals("") && !this.Password.Equals("") )
-                return true;
-            else
-                return false;
-        }
-        */
 
         public async Task<bool> CheckInformation()
         {
@@ -39,9 +33,20 @@ namespace MobileApp.Models
             prepareToEncrypt();
             request.AddJsonBody(new { login = this.Username, password = EncryptData(this.Password) });
             var response = await client.ExecutePostTaskAsync<Object>(request);
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                return true;
             
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var userDetail = JObject.Parse(response.Content);
+                this.Id = Convert.ToInt32(userDetail["id"]);
+                Constant.id = this.Id;
+                companies = new List<int>();
+                foreach(var item in userDetail["companies"])
+                {
+                    companies.Add(Convert.ToInt32(item["id"]));
+                }
+                Constant.companies = companies;
+                return true;
+            }               
             else
                 return false;
 

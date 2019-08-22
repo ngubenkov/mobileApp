@@ -36,7 +36,6 @@ namespace MobileApp.Views
             ActivitySpinner.IsVisible = true;
             if (await user.CheckInformation())
             {
-                
                // await DisplayAlert("Login", "Login success", "Oke");
                 // var result = await App.RestService.Login(user);  // used for testing purpose
                 var result = new Token();
@@ -48,6 +47,7 @@ namespace MobileApp.Views
                 if(result != null)
                 {
                     ActivitySpinner.IsVisible = false;
+                    
                     //    App.UserDatabase.SaveUser(user);
                     //    App.TokenDatabase.SaveToken(result);
                     //    await Navigation.PushAsync(new Dashboard());

@@ -28,7 +28,7 @@ namespace MobileApp.Views.DetailViews.Accounts
         async void Init()
         {
             lbl_AccountName.Text = AccountName;
-            lbl_test.Text = String.Format(Constant.apiAccountDetail + id.ToString() + "/" );
+            lbl_test.Text = String.Format(Constant.apiAccountDetail + Constant.id.ToString() + id.ToString() + "/" );
             
             var client = new RestClient(Constant.apiAccountDetail + id.ToString() + "/" );
             var request = new RestRequest(Method.GET);

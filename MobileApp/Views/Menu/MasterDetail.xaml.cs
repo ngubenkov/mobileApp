@@ -14,10 +14,11 @@ namespace MobileApp.Views.Menu
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterDetail : MasterDetailPage
     {
+        public User user;
         public MasterDetail()
         {
             InitializeComponent();
-            masterPage.ListView.ItemSelected += OnItemSelected;
+            masterPage.ListView.ItemSelected += OnItemSelected;  
         }
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)

@@ -23,6 +23,7 @@ namespace MobileApp.Views.DetailViews
             InitializeComponent();
             Init();
             InitList();
+            
         }
 
         void Init()
@@ -32,9 +33,10 @@ namespace MobileApp.Views.DetailViews
         async void InitList()
         {
             Items = new List<Tuple<string, int?>>();
-            var client = new RestClient(Constant.apiAccounts);
+            var client = new RestClient(Constant.apiAccounts + Constant.id.ToString());
             var request = new RestRequest(Method.GET);
-
+            
+            request.AddJsonBody(new {});
             var response = await client.ExecuteGetTaskAsync<JArray>(request);
             var salesPersons = JArray.Parse(response.Content);
 

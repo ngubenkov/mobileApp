@@ -21,7 +21,7 @@
                         <Label x:Name="lbl_totalQty"></Label>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Total Amount : " AutomationId="lblTest" ></Label>
+                        <Label Text="Total Amount : "></Label>
                         <Label x:Name="lbl_totalAmount"></Label>
                     </StackLayout>
                     <Button x:Name="btn_PlaceOrder" Text="Place Order"></Button>

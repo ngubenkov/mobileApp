@@ -20,7 +20,7 @@ namespace MobileApp
         private static Page currentPage;
         private static Timer timer;
         private static bool noInterShow;
-
+      
         public App()
         {
             InitializeComponent();

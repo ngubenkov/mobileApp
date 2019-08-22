@@ -15,6 +15,9 @@ namespace MobileApp.Models
 
         public static int LoginIconHeight = 120;
 
+        public static int id { get; set; }
+        public static List<int> companies { get; set; }
+
         // ------------Encryption-------------------
         public static string Key = "e2uSo0f1t4ro";
         
@@ -28,9 +31,9 @@ namespace MobileApp.Models
         //public static string endPoint = "http://192.168.137.1:8000/api/";  // change this var during testing coffee house
         public static string endPoint = "http://192.168.137.1:8000/api/"; // home wifi
         public static string apiSalesPersons = endPoint+"salespersons/";
-        public static string apiAccounts = endPoint + "accounts/";
+        public static string apiAccounts = endPoint + "companies/";
         public static string apiAuth = endPoint + "auth/";
-        public static string apiAccountDetail = endPoint + "account/details/";
+        public static string apiAccountDetail = endPoint + "companies/details/";
         public static string apiItems = endPoint + "items/"; // api/items/ -> returns all items, but api/items/<int:pk> -> returns info about specific item
 
     }
