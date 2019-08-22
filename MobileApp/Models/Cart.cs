@@ -17,7 +17,24 @@ namespace MobileApp.Models
 
         public void addItemToCart(Product product, int quantity) // add item to chart
         {
-            this.cart.Add(new Tuple<Product, int>(product, quantity));
+            int ind = 0;
+            bool isAdded = false;
+            foreach(Tuple<Product,int> item in cart) // check if same item already in cart -> if so just increase quantity
+            {              
+                if(item.Item1.id == product.id)
+                {
+                    this.addQuantity(ind);
+                    isAdded = true;
+                    break;
+                }
+                ind++;
+            }
+
+            if (!isAdded)
+            {
+                this.cart.Add(new Tuple<Product, int>(product, quantity));
+            }
+            
             updateCartTotalAmount();
             updateCartTotalQuantity();
         }

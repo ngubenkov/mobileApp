@@ -15,11 +15,12 @@ namespace MobileApp.Views.Cart
     {
         // listChart
         public Models.Cart cart;
- 
+        List<Label> labels;
         public Cart(Models.Cart cart)
         {
             InitializeComponent();
             this.cart = cart;
+            labels = new List<Label>();
             Init();
             
         }
@@ -88,17 +89,29 @@ namespace MobileApp.Views.Cart
             };
             btnPluss.Clicked += addItem;
 
+            Label lblQty = new Label
+            {
+                Text = qty.ToString(),
+                FontSize = 10,
+                WidthRequest = 30,
+                HeightRequest = 30,
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Center,
+                ClassId = "lbl" + item.id.ToString(),
+                AutomationId = "lbl" + item.id.ToString(), 
+            };
+            labels.Add(lblQty); // add label to label list
+
             StackLayout buttons = new StackLayout
             {
                 Children = {
                     btnMinus,
-                    new Label { Text = qty.ToString(), FontSize = 10, WidthRequest = 30, HeightRequest = 30,
-                        VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.Center, ClassId=item.id.ToString() },
+                    lblQty,
                     btnPluss,
                 },
                 Orientation = StackOrientation.Horizontal,
                 HorizontalOptions = LayoutOptions.Center,
-                
+                AutomationId = item.id.ToString(),
             };
 
             StackLayout itemStack = new StackLayout
@@ -128,8 +141,10 @@ namespace MobileApp.Views.Cart
                     cart.addQuantity(ind);
                     break;
                 }
-                ind++;
+                ind++;     
            }
+            labels[ind].Text = cart.cart[ind].Item2.ToString();
+            
             await updateTotals();
         }
         async void removeItem(object sender, EventArgs e)
@@ -146,6 +161,7 @@ namespace MobileApp.Views.Cart
                 }
                 ind++;
             }
+            labels[ind].Text = cart.cart[ind].Item2.ToString();
             await updateTotals();
         }
 
