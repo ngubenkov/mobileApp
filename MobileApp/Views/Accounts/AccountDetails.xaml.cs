@@ -48,12 +48,8 @@ namespace MobileApp.Views.DetailViews.Accounts
                 lbl_Email.Text = "No data";
             }
             
-            btn_GoBack.Clicked += (s, e) => goBackToMaster(s, e);
         }
 
-        async void goBackToMaster(object sender, EventArgs e)
-        {
-            Application.Current.MainPage = new NavigationPage(new AccountsMaster());
-        }
+
     }
 }

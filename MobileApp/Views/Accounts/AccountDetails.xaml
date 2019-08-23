@@ -6,22 +6,27 @@
              mc:Ignorable="d"
              x:Class="MobileApp.Views.DetailViews.Accounts.AccountDetails">
     <ContentPage.Content>
-        
+
         <StackLayout>
-            <Button x:Name="btn_GoBack" Clicked="goBackToMaster"></Button>
-            <Label x:Name="lbl_test" Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="lbl_test" Text="" />
             <Label x:Name="lbl_AccountName" Text=""></Label>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Phone Number:"></Label>
+                <Label x:Name="lbl_PhoneNumber" Text=""></Label>
+            </StackLayout>
             
-            <Label Text="Phone Number:"></Label>
-            <Label x:Name="lbl_PhoneNumber" Text=""></Label>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Address:"></Label>
+                <Label x:Name="lbl_Address" Text=""></Label>
 
-            <Label Text="Address:"></Label>
-            <Label x:Name="lbl_Address" Text=""></Label>
+            </StackLayout>
 
-            <Label Text="Email:"></Label>
-            <Label x:Name="lbl_Email" Text=""></Label>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Email:"></Label>
+                <Label x:Name="lbl_Email" Text=""></Label>
+            </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
