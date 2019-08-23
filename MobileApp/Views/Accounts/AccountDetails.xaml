@@ -26,6 +26,12 @@
                 <Label Text="Email:"></Label>
                 <Label x:Name="lbl_Email" Text=""></Label>
             </StackLayout>
+
+            <StackLayout>
+                <Button Text="New Order" Clicked="btn_newOrder"></Button>
+                <Button Text="Additional Info" Clicked="btn_additionalInfo"></Button>
+                <Button Text="Transaction History" Clicked="btn_transactionHistory"></Button>
+            </StackLayout>
             
         </StackLayout>
     </ContentPage.Content>

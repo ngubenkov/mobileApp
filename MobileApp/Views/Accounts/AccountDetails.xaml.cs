@@ -1,4 +1,5 @@
 ﻿using MobileApp.Models;
+using MobileApp.Views.DetailViews.Items;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
@@ -46,10 +47,21 @@ namespace MobileApp.Views.DetailViews.Accounts
                 lbl_Address.Text = "No data";
                 lbl_PhoneNumber.Text = "No data";
                 lbl_Email.Text = "No data";
-            }
+            }   
+        }
+
+        async void btn_newOrder(object sender, EventArgs e){
+            Application.Current.MainPage.Navigation.PushAsync(new ItemsMaster());
+        }
+
+        async void btn_additionalInfo(object sender, EventArgs e)
+        {
             
         }
 
+        async void btn_transactionHistory(object sender, EventArgs e)
+        {
 
+        }
     }
 }

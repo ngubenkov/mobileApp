@@ -43,16 +43,13 @@
     <EmbeddedResource Update="Views\Items\ItemsMasterList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DetailViews\SettingsViews\SettingsScreen.xaml">
+    <EmbeddedResource Update="Views\Settings\SettingsScreen.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DetailViews\InfoScreen1.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\DetailViews\InfoScreen2.xaml">
+    <EmbeddedResource Update="Views\LaunchingScreen\InfoScreen1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Menu\MasterDetail.xaml">

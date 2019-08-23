@@ -41,7 +41,7 @@ namespace MobileApp.Views
                 var result = new Token();
                 if(App.SettingsDatabase.GetSettings() == null)
                 {
-                    Settings settings = new Models.Settings();
+                    Settings settings = new Settings();
                     App.SettingsDatabase.SaveSettings(settings);
                 }
                 if(result != null)
